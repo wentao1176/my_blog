@@ -1,0 +1,16 @@
+---
+import { url } from '../lib/posts';
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<img
+  class:list={['paddle-logo', className]}
+  src={url('/images/table-tennis-logo.webp')}
+  alt=""
+  aria-hidden="true"
+  width="384"
+  height="256"
+/>

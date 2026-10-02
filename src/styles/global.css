@@ -1935,7 +1935,7 @@ a:hover {
     )
     scale(1.065);
   transition: transform 800ms cubic-bezier(0.2, 0.7, 0.3, 1);
-  animation: landscape-float 14s ease-in-out infinite alternate;
+  animation: landscape-float 9s ease-in-out infinite alternate;
   will-change: transform;
 }
 .hero-inner {
@@ -2046,10 +2046,170 @@ a:hover {
 }
 @keyframes landscape-float {
   from {
-    translate: 0 -4px;
+    translate: -5px -10px;
   }
   to {
-    translate: 0 5px;
+    translate: 7px 12px;
+  }
+}
+
+/* Supplied paddle identity, ambient motion, and scroll unfolding. */
+.paddle-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.brand-mark,
+.site-footer .brand-mark {
+  width: 48px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+}
+.brand-mark .paddle-logo {
+  animation: paddle-sway 4.8s ease-in-out infinite;
+}
+.avatar {
+  width: 78px;
+  height: 78px;
+  padding: 10px;
+}
+.portrait-logo {
+  width: 125px;
+  height: 94px;
+  margin: 5px auto 20px;
+  animation: quiet-float 5s ease-in-out infinite;
+}
+.project-monogram .paddle-logo {
+  width: 145px;
+  height: 110px;
+  animation: paddle-sway 6s ease-in-out infinite;
+}
+.hero-mist {
+  position: absolute;
+  inset: -15% -20%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 40% 20% at 68% 70%, #e8faff85, transparent 80%),
+    radial-gradient(ellipse 25% 25% at 28% 33%, #c9e9f344, transparent 75%);
+  animation: wandering-mist 11s ease-in-out infinite alternate;
+}
+.floating-lights span {
+  width: 4px;
+  height: 4px;
+  animation-duration: calc(6.5s + var(--i) * 0.12s);
+}
+.floating-lights span:nth-child(4n) {
+  width: 5px;
+  height: 5px;
+  background: #9acfe4;
+  box-shadow: 0 0 15px 4px #b6e5f850;
+}
+.ambient-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient-atmosphere span {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #b4ddeb22, transparent 70%);
+  border-radius: 50%;
+  animation: atmosphere-float 13s ease-in-out infinite alternate;
+}
+.ambient-atmosphere span:first-child {
+  left: -210px;
+  top: 15%;
+}
+.ambient-atmosphere span:last-child {
+  right: -250px;
+  bottom: 6%;
+  animation-delay: -6s;
+}
+#main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+.main-column,
+.article-grid,
+.prose,
+.archive-content {
+  perspective: 1500px;
+}
+.hero-copy > *,
+.post-card,
+.page-intro,
+.section-heading {
+  transform-origin: 50% 0;
+}
+[data-motion-paused='true'] *,
+[data-motion-paused='true'] *::before,
+[data-motion-paused='true'] *::after {
+  animation-play-state: paused !important;
+}
+@keyframes paddle-sway {
+  0%,
+  100% {
+    rotate: -5deg;
+    translate: 0 0;
+  }
+  50% {
+    rotate: 6deg;
+    translate: 0 -3px;
+  }
+}
+@keyframes wandering-mist {
+  from {
+    translate: -3% 3%;
+    opacity: 0.5;
+  }
+  to {
+    translate: 5% -4%;
+    opacity: 0.9;
+  }
+}
+@keyframes atmosphere-float {
+  from {
+    translate: 0 0;
+    scale: 0.95;
+  }
+  to {
+    translate: 55px -45px;
+    scale: 1.1;
+  }
+}
+@media (max-width: 640px) {
+  .brand-mark,
+  .site-footer .brand-mark {
+    width: 40px;
+    height: 34px;
+  }
+  .portrait-logo {
+    width: 100px;
+    height: 78px;
+    margin: 0;
+  }
+  .ambient-atmosphere span {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mist,
+  .floating-lights,
+  .ambient-atmosphere {
+    display: none;
+  }
+  .paddle-logo,
+  .avatar {
+    rotate: none;
+    translate: none;
   }
 }
 @keyframes quiet-float {

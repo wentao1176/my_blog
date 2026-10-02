@@ -1,8 +1,9 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
-import { resolve, join, sep } from 'node:path';
+import { resolve, join, sep, dirname } from 'node:path';
 import assert from 'node:assert/strict';
+import { deployment } from '../deployment.config.mjs';
 const root = resolve('docs');
-const base = process.env.BASE_PATH || '/my_blog';
+const base = deployment.base.replace(/\/$/, '');
 const files = readdirSync(root, { recursive: true }).filter((f) =>
   f.endsWith('.html'),
 );
@@ -14,14 +15,20 @@ for (const file of files) {
     `${file}: removed brand must not appear in published pages`,
   );
   assert.ok(html.includes('韦@舀'), `${file}: current author name must appear`);
+  assert.ok(
+    html.includes('images/table-tennis-logo.webp'),
+    `${file}: supplied paddle logo must appear`,
+  );
+  assert.ok(
+    html.includes('favicon.png'),
+    `${file}: favicon must use paddle image`,
+  );
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const raw = match[1];
-    if (!raw.startsWith('/')) continue;
-    assert.ok(raw.startsWith(`${base}/`), `${file}: missing base in ${raw}`);
-    const pathname = decodeURIComponent(
-      raw.split(/[?#]/)[0].slice(base.length),
-    );
-    const target = resolve(root, '.' + pathname);
+    if (/^(?:[a-z]+:|#|\/\/)/i.test(raw)) continue;
+    assert.ok(!raw.startsWith('/'), `${file}: path must be relative: ${raw}`);
+    const pathname = decodeURIComponent(raw.split(/[?#]/)[0]);
+    const target = resolve(root, dirname(file), pathname);
     assert.ok(
       target.startsWith(root + sep) || target === root,
       'Path must stay inside docs',
@@ -49,7 +56,11 @@ assert.equal(
   `${base}/`,
   'RSS channel homepage must include project base',
 );
-assert.ok(!rssXml.includes(`${base}${base}/`), 'RSS base must not be doubled');
+if (base)
+  assert.ok(
+    !rssXml.includes(`${base}${base}/`),
+    'RSS base must not be doubled',
+  );
 assert.ok(
   readFileSync(join(root, 'rss.xml'), 'utf8').includes(`${base}/posts/`),
   'RSS must include base path',

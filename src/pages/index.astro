@@ -10,9 +10,10 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
 
 <Layout>
   <section class="hero">
+    <div class="hero-mist" aria-hidden="true"></div>
     <div class="hero-aura" aria-hidden="true"></div>
     <div class="floating-lights" aria-hidden="true">
-      {Array.from({ length: 12 }, (_, i) => (
+      {Array.from({ length: 24 }, (_, i) => (
         <span
           style={`--i:${i};--left:${8 + ((i * 31) % 85)}%;--top:${13 + ((i * 17) % 75)}%`}
         ></span>

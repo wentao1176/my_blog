@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { site, nav } from '../config';
 import { url } from '../lib/posts';
 import Icon from '../components/Icon.astro';
+import Logo from '../components/Logo.astro';
 interface Props {
   title?: string;
   description?: string;
@@ -28,7 +29,12 @@ const path =
     <meta property="og:description" content={description} />
     <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:url" content={canonical} />
-    <link rel="icon" href={url('/favicon.svg')} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href={url('/favicon.png')}
+    />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -50,10 +56,16 @@ const path =
     <a class="skip-link" href="#main">
       跳转到正文
     </a>
+    <div class="ambient-atmosphere" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href={url('/')}>
-          <span class="brand-mark">韦</span>
+          <span class="brand-mark">
+            <Logo />
+          </span>
           <span class="brand-name">{site.name}</span>
         </a>
         <nav id="site-nav" aria-label="主导航">
@@ -107,7 +119,9 @@ const path =
     <footer class="site-footer">
       <div class="footer-top">
         <a class="brand" href={url('/')}>
-          <span class="brand-mark">韦</span>
+          <span class="brand-mark">
+            <Logo />
+          </span>
           <span class="brand-name">{site.name}</span>
         </a>
         <p>一半烟火，一半诗意。记录，也是与世界相遇。</p>

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import { site } from '../config';
 import { url } from '../lib/posts';
+import Logo from '../components/Logo.astro';
 ---
 
 <Layout title={`关于 ${site.author}`}>
@@ -13,7 +14,7 @@ import { url } from '../lib/posts';
   </section>
   <div class="wrap narrow archive-content about-content">
     <div class="about-portrait">
-      <span>韦</span>
+      <Logo class="portrait-logo" />
       <p>
         保持好奇
         <br />

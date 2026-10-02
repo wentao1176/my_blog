@@ -2,6 +2,7 @@
 import { site } from '../config';
 import { url } from '../lib/posts';
 import Icon from './Icon.astro';
+import Logo from './Logo.astro';
 interface Props {
   count: number;
   tags: string[];
@@ -11,7 +12,9 @@ const { count, tags } = Astro.props;
 
 <aside class="sidebar">
   <section class="profile-panel">
-    <div class="avatar">韦</div>
+    <div class="avatar">
+      <Logo />
+    </div>
     <h3>{site.author}</h3>
     <p>在代码里探索，在山水间停留。</p>
     <div class="profile-counts">

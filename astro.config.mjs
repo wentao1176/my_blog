@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { deployment } from './deployment.config.mjs';
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://wentao1176.github.io',
-  base: process.env.BASE_PATH || '/my_blog',
+  ...deployment,
   outDir: './docs',
   trailingSlash: 'always',
   integrations: [sitemap()],

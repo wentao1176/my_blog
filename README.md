@@ -2,11 +2,11 @@
 
 雾蓝山水、宋体手记与竹笛意境的个人博客。Astro + TypeScript + Markdown，支持移动端、深浅主题、搜索、分类标签、归档、阅读目录、RSS 与站点地图。
 
-首页山水支持缓慢浮动与鼠标视差，卡片具有 3D 倾斜与柔和流光，光点轻轻漂移，内容滚动时短暂入场。尊重系统「减少动态效果」设置，触屏不启用鼠标倾斜，文章正文保持稳定。
+首页山水、雾光和光点会自动持续运动，球拍标志轻缓摇动；首屏文字分层展开，页面内容随滚动进入视口时逐块展开，离开后重新进入会重播。新页面和浏览器返回同样支持展开。保留鼠标视差和 3D 卡片倾斜，尊重系统「减少动态效果」设置，后台页面自动暂停动画，无 JavaScript 时内容仍可阅读。
 
 ## GitHub Pages 直接部署
 
-仓库内的 **`docs/` 是完整构建好的静态网站**，不需要在服务器上安装 Node。它包含首页、全部文章、资源、RSS、站点地图和 `.nojekyll`，所有链接均适配 `/my_blog/`。
+仓库内的 **`docs/` 是完整构建好的静态网站**，不需要在服务器上安装 Node。它包含首页、全部文章、资源、RSS、站点地图和 `.nojekyll`，页面资源和站内导航使用相对路径，适配根目录和子目录。
 
 方式一：在仓库 **Settings → Pages → Build and deployment** 选择 **Deploy from a branch**，分支选 **main**，文件夹选 **/docs**，保存。
 
@@ -14,7 +14,7 @@
 
 工作流会检查 Pages 的发布模式：未启用 Pages 或使用分支部署时，只构建验证并保存产物；选择 GitHub Actions 后才执行在线部署，避免两种发布方式互相干扰。
 
-发布成功后的预期地址：`https://wentao1176.github.io/my_blog/`。是否已上线请以仓库 Pages 设置和部署结果为准。
+发布成功后的预期地址：`https://www.xuanwentao.cn/`。是否已上线请以仓库 Pages 设置和部署结果为准。
 
 ## 文件结构
 
@@ -57,7 +57,7 @@ npm ci
 npm run dev
 ```
 
-打开终端显示的地址，加上 `/my_blog/`。生产预览：`npm run build` 后运行 `npm run preview`。
+打开终端显示的地址，使用根路径 `/`。生产预览：`npm run build` 后运行 `npm run preview`。
 
 ```sh
 npm test
@@ -93,7 +93,7 @@ cover: mountain
 - 音乐区默认无音源，不自动播放。设置 `site.music.src` 为你有权使用的 HTTPS 音频地址后，启用原生音频控制。使用仓库本地音源时通过 `url('/audio/曲名.mp3')` 添加基础路径。
 - 评论、统计和内容服务扩展见 [集成说明](planning/INTEGRATIONS.md)。
 - 山水素材说明与生成提示见 [素材记录](planning/ASSETS.md)。设计灵感参考 Astro Zen Blog 的克制布局，界面与实现为本项目定制。
-- 更换域名或部署位置时，在 `astro.config.mjs` 修改 `site` 与 `base`，或设置 `SITE_URL`、`BASE_PATH` 环境变量。自定义域名时在 `public/CNAME` 写入域名并重新构建。
+- 更换域名或部署位置时，在 `deployment.config.mjs` 修改 `site` 与 `base`，或设置 `SITE_URL`、`BASE_PATH` 环境变量。自定义域名时在 `public/CNAME` 写入域名并重新构建。
 
 ## 内容许可
 

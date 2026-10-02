@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { site } from '../config';
 import Icon from '../components/Icon.astro';
+import Logo from '../components/Logo.astro';
 ---
 
 <Layout title="项目">
@@ -12,7 +13,9 @@ import Icon from '../components/Icon.astro';
   </section>
   <section class="wrap narrow archive-content">
     <article class="project-card">
-      <div class="project-monogram">韦</div>
+      <div class="project-monogram">
+        <Logo />
+      </div>
       <div>
         <div class="eyebrow">01 / PERSONAL BLOG</div>
         <h2>{site.title}</h2>

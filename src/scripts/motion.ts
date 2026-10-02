@@ -1,4 +1,5 @@
 // Decorative interactions only; content and navigation remain available without JS.
+import './reveal';
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
 const hero = document.querySelector<HTMLElement>('.hero');
@@ -52,32 +53,3 @@ function setupPointerMotion(surface: HTMLElement, heroMode = false) {
 }
 if (hero) setupPointerMotion(hero, true);
 tiltSurfaces.forEach((surface) => setupPointerMotion(surface));
-
-// One-shot, short entrance animation; never conceal content before JS loads.
-const revealNodes = [
-  ...document.querySelectorAll<HTMLElement>(
-    '.post-card, .profile-panel, .side-section, .closing-note, .page-intro',
-  ),
-];
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        if (!reducedMotion.matches) {
-          const element = entry.target as HTMLElement;
-          element.animate(
-            [
-              { opacity: 0.35, translate: '0 18px' },
-              { opacity: 1, translate: '0 0' },
-            ],
-            { duration: 650, easing: 'cubic-bezier(.2,.7,.3,1)' },
-          );
-        }
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.08 },
-  );
-  revealNodes.forEach((element) => observer.observe(element));
-}
