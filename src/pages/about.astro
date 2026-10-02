@@ -5,15 +5,15 @@ import { site } from '../config';
 import { url } from '../lib/posts';
 ---
 
-<Layout title="关于 Wentao">
+<Layout title={`关于 ${site.author}`}>
   <section class="page-intro wrap">
     <div class="eyebrow">A LITTLE ABOUT ME</div>
-    <h1>你好，我是 Wentao。</h1>
+    <h1>你好，我是{site.author}。</h1>
     <p>在代码里探索，在山水间停留。</p>
   </section>
   <div class="wrap narrow archive-content about-content">
     <div class="about-portrait">
-      <span>岚</span>
+      <span>韦</span>
       <p>
         保持好奇
         <br />
@@ -23,10 +23,11 @@ import { url } from '../lib/posts';
     <div class="prose">
       <h2>一方属于自己的天地</h2>
       <p>
-        这里是我的个人博客「青岚」。它承载技术笔记、生活随记，以及与音乐有关的灵感。
+        这里是{site.author}
+        的个人博客。它承载技术笔记、生活随记，以及与音乐有关的灵感。
       </p>
       <p>
-        青，是青竹与山水的颜色；岚，是山间缓缓升起的雾。希望每一次打开这里，都像走进一处安静的山间小屋。
+        希望每一次打开这里，都像走进一处安静的山间小屋。在文字与山水之间，找到一点自己的节奏。
       </p>
       <h2>在这里可以读到</h2>
       <ul>

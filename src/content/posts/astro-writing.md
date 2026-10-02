@@ -40,8 +40,8 @@ cover: mountain
 项目网站通常位于一个子路径下。文章链接、资源链接和 RSS 地址都需要经过同一个基础路径函数，才能避免本地正常、上线后失效。
 
 ```typescript
-const articleUrl = url('/posts/hello-qinglan/');
-// GitHub Pages: /my_blog/posts/hello-qinglan/
+const articleUrl = url('/posts/first-entry/');
+// GitHub Pages: /my_blog/posts/first-entry/
 ```
 
 ## 慢慢长成花园

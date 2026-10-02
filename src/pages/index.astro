@@ -10,9 +10,17 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
 
 <Layout>
   <section class="hero">
+    <div class="hero-aura" aria-hidden="true"></div>
+    <div class="floating-lights" aria-hidden="true">
+      {Array.from({ length: 12 }, (_, i) => (
+        <span
+          style={`--i:${i};--left:${8 + ((i * 31) % 85)}%;--top:${13 + ((i * 17) % 75)}%`}
+        ></span>
+      ))}
+    </div>
     <img
       class="hero-art"
-      src={url('/images/qinglan-landscape.webp')}
+      src={url('/images/mist-landscape.webp')}
       alt="浅蓝色水墨山水，远山隐于雾中，湖畔有亭与竹影"
       width="2172"
       height="724"
@@ -21,7 +29,7 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
     <div class="hero-inner">
       <div class="hero-copy">
         <div class="eyebrow">
-          <span class="small-line"></span> WENTAO'S JOURNAL
+          <span class="small-line"></span> A PERSONAL JOURNAL
         </div>
         <h1>
           山水有相逢，
@@ -42,7 +50,7 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
           </a>
         </div>
         <div class="hero-note">
-          <span class="seal">青岚</span>
+          <span class="seal">手记</span>
           <span>一半烟火，一半诗意</span>
         </div>
       </div>

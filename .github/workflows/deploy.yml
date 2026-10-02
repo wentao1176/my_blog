@@ -1,4 +1,4 @@
-name: Deploy Qinglan to GitHub Pages
+name: Deploy Blog to GitHub Pages
 on:
   push:
     branches: [main]

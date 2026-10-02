@@ -37,7 +37,7 @@ const path =
     />
     <script is:inline>
       try {
-        const t = localStorage.getItem('qinglan-theme');
+        const t = localStorage.getItem('wentao-theme');
         if (
           t === 'dark' ||
           (!t && matchMedia('(prefers-color-scheme: dark)').matches)
@@ -53,10 +53,8 @@ const path =
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href={url('/')}>
-          <span class="brand-mark">青</span>
-          <span class="brand-name">
-            青岚 <i>·</i> <small>Wentao</small>
-          </span>
+          <span class="brand-mark">韦</span>
+          <span class="brand-name">{site.name}</span>
         </a>
         <nav id="site-nav" aria-label="主导航">
           {nav.map(([label, href]) => (
@@ -109,10 +107,8 @@ const path =
     <footer class="site-footer">
       <div class="footer-top">
         <a class="brand" href={url('/')}>
-          <span class="brand-mark">青</span>
-          <span class="brand-name">
-            青岚 <i>·</i> <small>Wentao</small>
-          </span>
+          <span class="brand-mark">韦</span>
+          <span class="brand-name">{site.name}</span>
         </a>
         <p>一半烟火，一半诗意。记录，也是与世界相遇。</p>
         <div class="footer-links">
@@ -124,7 +120,9 @@ const path =
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© {new Date().getUTCFullYear()} Wentao · 青岚</span>
+        <span>
+          © {new Date().getUTCFullYear()} {site.author}
+        </span>
         <span>
           山水有相逢，文字有回响 <span class="footer-seal">记</span>
         </span>

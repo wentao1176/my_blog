@@ -1,3 +1,4 @@
+import './motion';
 const themeButton = document.querySelector<HTMLButtonElement>('#theme-toggle');
 const updateTheme = () =>
   themeButton?.setAttribute(
@@ -12,7 +13,7 @@ themeButton?.addEventListener('click', () => {
     document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
   try {
-    localStorage.setItem('qinglan-theme', next);
+    localStorage.setItem('wentao-theme', next);
   } catch {}
   updateTheme();
 });

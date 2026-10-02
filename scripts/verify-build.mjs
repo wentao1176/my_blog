@@ -9,6 +9,11 @@ const files = readdirSync(root, { recursive: true }).filter((f) =>
 let links = 0;
 for (const file of files) {
   const html = readFileSync(join(root, file), 'utf8');
+  assert.ok(
+    !html.includes('青岚'),
+    `${file}: removed brand must not appear in published pages`,
+  );
+  assert.ok(html.includes('韦@舀'), `${file}: current author name must appear`);
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const raw = match[1];
     if (!raw.startsWith('/')) continue;

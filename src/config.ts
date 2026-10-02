@@ -1,7 +1,7 @@
 export const site = {
-  name: '青岚',
-  author: 'Wentao',
-  title: '青岚 · Wentao',
+  name: '韦@舀',
+  author: '韦@舀',
+  title: '韦@舀 · 个人博客',
   description: '山水之间，记录代码、生活与偶然听见的笛声。',
   github: 'https://github.com/wentao1176',
   repository: 'https://github.com/wentao1176/my_blog',
