@@ -1946,7 +1946,7 @@ a:hover {
   transform: translate3d(
     calc(var(--pointer-x) * 8px),
     calc(var(--pointer-y) * 5px),
-    25px
+    0
   );
   transition: transform 700ms cubic-bezier(0.2, 0.7, 0.3, 1);
 }
