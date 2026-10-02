@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPosts, url } from '../../lib/posts';
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
+---
+
+<Layout title="标签">
+  <section class="page-intro wrap">
+    <div class="eyebrow">THREADS OF THOUGHT</div>
+    <h1>思绪的索引</h1>
+    <p>顺着一个词，读到更多故事。</p>
+  </section>
+  <section class="wrap narrow archive-content">
+    <div class="large-tag-cloud">
+      {tags.map((tag) => (
+        <a href={url(`/tags/${encodeURIComponent(tag)}/`)}>
+          {tag}
+          <span>{posts.filter((p) => p.data.tags.includes(tag)).length}</span>
+        </a>
+      ))}
+    </div>
+    <a class="text-link" href={url('/categories/')}>
+      浏览文章分类
+    </a>
+  </section>
+</Layout>

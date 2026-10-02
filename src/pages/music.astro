@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config';
+import { url } from '../lib/posts';
+---
+
+<Layout title="音乐空间">
+  <section class="page-intro wrap">
+    <div class="eyebrow">SOUNDS BETWEEN THE MOUNTAINS</div>
+    <h1>一曲入山，清风自来。</h1>
+    <p>给日常按下片刻暂停，听一听文字之外的声音。</p>
+  </section>
+  <section class="wrap narrow archive-content">
+    <div class="music-room">
+      <div class="music-art">
+        <img
+          src={url('/images/qinglan-landscape.webp')}
+          alt="雾蓝色的远山与湖面"
+          width="2172"
+          height="724"
+        />
+        <div class="music-art-label">
+          <span>竹笛</span>
+          <small>清音 · 山水 · 留白</small>
+        </div>
+      </div>
+      <div class="music-room-content">
+        <div class="eyebrow">QINGLAN / LISTENING ROOM</div>
+        <h2>{site.music.title}</h2>
+        <p>{site.music.subtitle}</p>
+        {site.music.src ? (
+          <>
+            <audio
+              id="music-audio"
+              src={site.music.src}
+              preload="none"
+              controls
+              aria-label={site.music.title}
+            ></audio>
+            <p id="music-status" role="status" class="subtle">
+              按下播放，开始聆听。
+            </p>
+            <script>
+              const audio =
+                document.querySelector<HTMLAudioElement>('#music-audio');
+              const status = document.querySelector('#music-status');
+              audio?.addEventListener('error', () => {
+                if (status)
+                  status.textContent = '这段音乐暂时无法加载，请稍后重试。';
+              });
+              audio?.addEventListener('playing', () => {
+                if (status) status.textContent = '正在播放 · 山间一曲';
+              });
+              audio?.addEventListener('pause', () => {
+                if (status) status.textContent = '已暂停';
+              });
+              audio?.addEventListener('ended', () => {
+                if (status) status.textContent = '曲终，余韵还在。';
+              });
+            </script>
+          </>
+        ) : (
+          <div class="music-unconfigured">
+            <Icon name="music" size={24} />
+            <span>
+              曲目正在准备中<small>待一段笛声，与这片山水相逢。</small>
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+    <div class="music-reading">
+      <div>
+        <div class="eyebrow">READ & LISTEN</div>
+        <h2>旋律之外，还有文字。</h2>
+      </div>
+      <a
+        class="text-link"
+        href={url('/categories/' + encodeURIComponent('音乐与灵感') + '/')}
+      >
+        音乐与灵感随笔
+      </a>
+    </div>
+  </section>
+</Layout>

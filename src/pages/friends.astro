@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="友链">
+  <section class="page-intro wrap">
+    <div class="eyebrow">GOOD COMPANY</div>
+    <h1>山水之间，亦有同路人。</h1>
+    <p>分享值得停留的文字，也珍惜偶然的相遇。</p>
+  </section>
+  <section class="wrap narrow archive-content">
+    {site.friends.length ? (
+      <div class="friend-grid">
+        {site.friends.map((friend) => (
+          <a
+            class="friend-card"
+            href={friend.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <h2>{friend.name}</h2>
+            <p>{friend.description}</p>
+            <Icon name="external" />
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state">
+        <Icon name="leaf" size={32} />
+        <h2>留一席清风，等一次相遇。</h2>
+        <p>这里的朋友名单还在慢慢收集。</p>
+      </div>
+    )}
+  </section>
+</Layout>

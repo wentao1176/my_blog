@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="项目">
+  <section class="page-intro wrap">
+    <div class="eyebrow">THINGS I BUILD</div>
+    <h1>把想法，做成作品。</h1>
+    <p>每一次动手，都是一次新的探索。</p>
+  </section>
+  <section class="wrap narrow archive-content">
+    <article class="project-card">
+      <div class="project-monogram">青岚</div>
+      <div>
+        <div class="eyebrow">01 / PERSONAL BLOG</div>
+        <h2>青岚 · Wentao</h2>
+        <p>
+          一个以山水、文字与笛乐为灵感的个人博客。用 Markdown
+          写作，让内容拥有自己的节奏。
+        </p>
+        <div class="tag-cloud">
+          <span>Astro</span>
+          <span>TypeScript</span>
+          <span>Markdown</span>
+        </div>
+        <a
+          class="button"
+          href={site.repository}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon name="github" size={18} /> 查看源代码
+        </a>
+      </div>
+    </article>
+  </section>
+</Layout>

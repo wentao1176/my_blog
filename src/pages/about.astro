@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config';
+import { url } from '../lib/posts';
+---
+
+<Layout title="关于 Wentao">
+  <section class="page-intro wrap">
+    <div class="eyebrow">A LITTLE ABOUT ME</div>
+    <h1>你好，我是 Wentao。</h1>
+    <p>在代码里探索，在山水间停留。</p>
+  </section>
+  <div class="wrap narrow archive-content about-content">
+    <div class="about-portrait">
+      <span>岚</span>
+      <p>
+        保持好奇
+        <br />
+        也保持从容
+      </p>
+    </div>
+    <div class="prose">
+      <h2>一方属于自己的天地</h2>
+      <p>
+        这里是我的个人博客「青岚」。它承载技术笔记、生活随记，以及与音乐有关的灵感。
+      </p>
+      <p>
+        青，是青竹与山水的颜色；岚，是山间缓缓升起的雾。希望每一次打开这里，都像走进一处安静的山间小屋。
+      </p>
+      <h2>在这里可以读到</h2>
+      <ul>
+        <li>技术笔记：把探索和问题的解决过程留下来。</li>
+        <li>生活随记：收集日常里值得记录的瞬间。</li>
+        <li>音乐与灵感：让文字之外的声音，也有一席之地。</li>
+      </ul>
+      <h2>让我们相遇</h2>
+      <p>你可以在 GitHub 找到我，也可以通过 RSS 订阅新的文章。</p>
+      <div class="about-links">
+        <a
+          class="button primary"
+          href={site.github}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon name="github" size={18} /> GitHub
+        </a>
+        <a class="button" href={url('/rss.xml')}>
+          <Icon name="rss" size={18} /> 订阅 RSS
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

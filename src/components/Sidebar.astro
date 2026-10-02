@@ -1,0 +1,74 @@
+---
+import { site } from '../config';
+import { url } from '../lib/posts';
+import Icon from './Icon.astro';
+interface Props {
+  count: number;
+  tags: string[];
+}
+const { count, tags } = Astro.props;
+---
+
+<aside class="sidebar">
+  <section class="profile-panel">
+    <div class="avatar">岚</div>
+    <h3>Wentao</h3>
+    <p>在代码里探索，在山水间停留。</p>
+    <div class="profile-counts">
+      <a href={url('/posts/')}>
+        <strong>{count}</strong>
+        <span>篇文章</span>
+      </a>
+      <a href={url('/tags/')}>
+        <strong>{tags.length}</strong>
+        <span>个标签</span>
+      </a>
+      <a href={url('/projects/')}>
+        <strong>01</strong>
+        <span>个项目</span>
+      </a>
+    </div>
+    <a
+      class="profile-github"
+      href={site.github}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <Icon name="github" size={17} /> GitHub
+    </a>
+  </section>
+  <section class="side-section">
+    <div class="eyebrow">A MOMENT OF QUIET</div>
+    <h3>风过竹林，笛声入梦</h3>
+    <p>给忙碌的日常，留一点悠然。</p>
+    <a class="music-teaser" href={url('/music/')}>
+      <span class="round-icon">
+        <Icon name="music" />
+      </span>
+      <span>
+        <b>山间一曲</b>
+        <small>音乐 · 竹笛 · 灵感</small>
+      </span>
+      <Icon name="play" size={16} />
+    </a>
+  </section>
+  <section class="side-section">
+    <h3>
+      随笔标签 <span class="tiny">TAGS</span>
+    </h3>
+    <div class="tag-cloud">
+      {tags.map((tag) => (
+        <a href={url(`/tags/${encodeURIComponent(tag)}/`)}>{tag}</a>
+      ))}
+    </div>
+  </section>
+  <section class="quote-panel">
+    <span>「</span>
+    <p>
+      且将新火试新茶，
+      <br />
+      诗酒趁年华。
+    </p>
+    <small>苏轼 ·《望江南》</small>
+  </section>
+</aside>

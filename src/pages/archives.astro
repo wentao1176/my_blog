@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getPosts, url, dateLabel } from '../lib/posts';
+const posts = await getPosts();
+const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
+---
+
+<Layout title="时间归档">
+  <section class="page-intro wrap">
+    <div class="eyebrow">THROUGH THE YEARS</div>
+    <h1>时光有迹</h1>
+    <p>把零散的日子，串成一条温柔的时间线。</p>
+  </section>
+  <div class="wrap narrow archive-content">
+    <p class="subtle">共 {posts.length} 篇记录，故事还在继续。</p>
+    {years.map((year) => (
+      <section class="archive-year">
+        <h2>
+          {year}
+          <span>年</span>
+        </h2>
+        <div class="timeline">
+          {posts
+            .filter((p) => p.data.date.getUTCFullYear() === year)
+            .map((p) => (
+              <a href={url(`/posts/${p.id}/`)}>
+                <time>{dateLabel(p.data.date).slice(5)}</time>
+                <span>
+                  <strong>{p.data.title}</strong>
+                  <small>{p.data.category}</small>
+                </span>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>

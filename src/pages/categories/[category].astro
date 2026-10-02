@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, url } from '../../lib/posts';
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return [...new Set(posts.map((p) => p.data.category))].map((category) => ({
+    params: { category },
+    props: {
+      category,
+      posts: posts.filter((p) => p.data.category === category),
+    },
+  }));
+}
+const { category, posts } = Astro.props;
+---
+
+<Layout title={category}>
+  <section class="page-intro wrap">
+    <div class="eyebrow">CHAPTER / {posts.length} ENTRIES</div>
+    <h1>{category}</h1>
+    <a class="text-link" href={url('/categories/')}>
+      浏览所有分类
+    </a>
+  </section>
+  <section class="wrap article-grid archive-content">
+    {posts.map((post) => (
+      <PostCard post={post} featured />
+    ))}
+  </section>
+</Layout>

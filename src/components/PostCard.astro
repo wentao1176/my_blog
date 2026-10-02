@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { url, dateLabel, readingTime } from '../lib/posts';
+interface Props {
+  post: CollectionEntry<'posts'>;
+  featured?: boolean;
+}
+const { post, featured = false } = Astro.props;
+---
+
+<article
+  class:list={['post-card', { 'featured-card': featured }]}
+  data-post
+  data-title={post.data.title}
+  data-description={post.data.description}
+  data-category={post.data.category}
+  data-tags={post.data.tags.join(' ')}
+>
+  <a
+    class:list={['post-cover', post.data.cover]}
+    href={url(`/posts/${post.id}/`)}
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <img
+      src={url('/images/qinglan-landscape.webp')}
+      alt=""
+      loading="lazy"
+      width="2172"
+      height="724"
+    />
+    <span class="cover-caption">
+      {post.data.cover === 'bamboo'
+        ? '听 · 风'
+        : post.data.cover === 'lake'
+          ? '观 · 水'
+          : '见 · 山'}
+    </span>
+  </a>
+  <div class="post-card-body">
+    <div class="post-meta">
+      <span>{post.data.category}</span>
+      <span>{dateLabel(post.data.date)}</span>
+    </div>
+    <h3>
+      <a href={url(`/posts/${post.id}/`)}>{post.data.title}</a>
+    </h3>
+    <p>{post.data.description}</p>
+    <div class="post-card-footer">
+      <div class="tags">
+        {post.data.tags.slice(0, 2).map((tag) => (
+          <a href={url(`/tags/${encodeURIComponent(tag)}/`)}>#{tag}</a>
+        ))}
+      </div>
+      <span class="read-time">
+        <Icon name="book" size={14} />
+        {readingTime(post.body)} 分钟
+      </span>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPosts, url } from '../../lib/posts';
+const posts = await getPosts();
+const categories = [...new Set(posts.map((p) => p.data.category))];
+---
+
+<Layout title="分类">
+  <section class="page-intro wrap">
+    <div class="eyebrow">CHAPTERS</div>
+    <h1>各有一方天地</h1>
+    <p>代码、生活与灵感，都是值得记录的部分。</p>
+  </section>
+  <div class="wrap narrow archive-content category-list">
+    {categories.map((category, index) => (
+      <a href={url(`/categories/${encodeURIComponent(category)}/`)}>
+        <span class="category-number">0{index + 1}</span>
+        <h2>{category}</h2>
+        <span>
+          {posts.filter((p) => p.data.category === category).length} 篇
+        </span>
+      </a>
+    ))}
+  </div>
+</Layout>

@@ -1,0 +1,142 @@
+---
+import '../styles/global.css';
+import { site, nav } from '../config';
+import { url } from '../lib/posts';
+import Icon from '../components/Icon.astro';
+interface Props {
+  title?: string;
+  description?: string;
+  article?: boolean;
+}
+const { title, description = site.description, article = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const path =
+  Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') ||
+  '/';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#edf5f8" />
+    <title>{title?`${title} · ${site.title}`:site.title+' | 山水有相逢，文字有回响'}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title || site.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href={url('/favicon.svg')} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={site.title}
+      href={url('/rss.xml')}
+    />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('qinglan-theme');
+        if (
+          t === 'dark' ||
+          (!t && matchMedia('(prefers-color-scheme: dark)').matches)
+        )
+          document.documentElement.dataset.theme = 'dark';
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      跳转到正文
+    </a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href={url('/')}>
+          <span class="brand-mark">青</span>
+          <span class="brand-name">
+            青岚 <i>·</i> <small>Wentao</small>
+          </span>
+        </a>
+        <nav id="site-nav" aria-label="主导航">
+          {nav.map(([label, href]) => (
+            <a
+              class:list={[
+                { active: href === '/' ? path === '/' : path.startsWith(href) },
+              ]}
+              href={url(href)}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+        <div class="header-tools">
+          <a
+            class="icon-button"
+            href={url('/posts/#search')}
+            aria-label="搜索文章"
+          >
+            <Icon name="search" />
+          </a>
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            aria-label="切换深色模式"
+            title="切换主题"
+          >
+            <span class="moon-icon">
+              <Icon name="moon" />
+            </span>
+            <span class="sun-icon">
+              <Icon name="sun" />
+            </span>
+          </button>
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            aria-label="展开导航"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <Icon name="menu" />
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a class="brand" href={url('/')}>
+          <span class="brand-mark">青</span>
+          <span class="brand-name">
+            青岚 <i>·</i> <small>Wentao</small>
+          </span>
+        </a>
+        <p>一半烟火，一半诗意。记录，也是与世界相遇。</p>
+        <div class="footer-links">
+          <a href={url('/projects/')}>项目</a>
+          <a href={url('/friends/')}>友链</a>
+          <a href={url('/rss.xml')} aria-label="RSS 订阅">
+            <Icon name="rss" size={17} /> RSS
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getUTCFullYear()} Wentao · 青岚</span>
+        <span>
+          山水有相逢，文字有回响 <span class="footer-seal">记</span>
+        </span>
+      </div>
+    </footer>
+    <script src="../scripts/site.ts"></script>
+    {site.integrations.analytics.scriptUrl && (
+      <script
+        is:inline
+        defer
+        src={site.integrations.analytics.scriptUrl}
+      ></script>
+    )}
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../lib/posts';
+---
+
+<Layout title="山路未至">
+  <section class="not-found wrap">
+    <div class="eyebrow">404 / A PATH NOT YET TAKEN</div>
+    <h1>
+      这条山路，
+      <br />
+      暂时没有故事。
+    </h1>
+    <p>也许是地址写错了，也许这篇文字已搬去了别处。</p>
+    <a class="button primary" href={url('/')}>
+      回到青岚
+    </a>
+    <a class="button" href={url('/posts/')}>
+      浏览文章
+    </a>
+  </section>
+</Layout>

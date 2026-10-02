@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Icon from '../../components/Icon.astro';
+import { getPosts } from '../../lib/posts';
+const posts = await getPosts();
+const categories = [...new Set(posts.map((p) => p.data.category))];
+---
+
+<Layout title="文章">
+  <section class="page-intro wrap">
+    <div class="eyebrow">THE JOURNAL</div>
+    <h1>字里行间</h1>
+    <p>一些探索，一些日常，一些想留住的瞬间。</p>
+  </section>
+  <section class="wrap archive-content">
+    <div class="search-bar" id="search">
+      <Icon name="search" />
+      <label class="sr-only" for="post-search">
+        搜索文章标题、摘要或标签
+      </label>
+      <input
+        id="post-search"
+        type="search"
+        placeholder="寻找一篇文章、一段灵感…"
+        autocomplete="off"
+      />
+      <kbd>/</kbd>
+    </div>
+    <div class="filter-row" role="group" aria-label="按分类筛选">
+      <button
+        class="filter-chip selected"
+        data-filter="全部"
+        aria-pressed="true"
+      >
+        全部文章
+      </button>
+      {categories.map((category) => (
+        <button class="filter-chip" data-filter={category} aria-pressed="false">
+          {category}
+        </button>
+      ))}
+      <span id="result-count" aria-live="polite">
+        共 {posts.length} 篇文章
+      </span>
+    </div>
+    <div class="article-grid">
+      {posts.map((post) => (
+        <PostCard post={post} featured />
+      ))}
+    </div>
+    <div id="empty-results" class="empty-state" hidden>
+      <Icon name="search" size={28} />
+      <h2>还没有找到这段文字</h2>
+      <p>换一个关键词，或试试其他分类。</p>
+      <button id="reset-search" class="button">
+        清除筛选
+      </button>
+    </div>
+  </section>
+  <script src="../../scripts/search.ts"></script>
+</Layout>
