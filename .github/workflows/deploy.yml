@@ -11,6 +11,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      deploy: ${{ steps.pages-mode.outputs.result }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,10 +26,30 @@ jobs:
       - run: npm test
       - run: npm run check
       - run: npm run build
+      - run: npm run verify:build
+      - name: Check Pages publishing mode
+        id: pages-mode
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              const { data } = await github.rest.repos.getPages({
+                owner: context.repo.owner,
+                repo: context.repo.repo
+              });
+              return data.build_type === 'workflow';
+            } catch (error) {
+              if (error.status === 404) {
+                core.notice('Pages is not enabled yet. Select main /docs or GitHub Actions in Settings > Pages.');
+                return false;
+              }
+              throw error;
+            }
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
   deploy:
+    if: needs.build.outputs.deploy == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

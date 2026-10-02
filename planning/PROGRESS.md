@@ -4,3 +4,6 @@
 - Task 2: Complete page structure and responsive visual system authored. Type inference issue corrected at getPosts return boundary. Current Astro zod import updated to astro/zod.
 - Task 3: User requested directly deployable GitHub Pages structure. Production output changed from dist to tracked docs; design material moved to planning. Both branch /docs and Actions deployments supported.
 - User explicitly requests autonomous final delivery without confirmation gates.
+- Browser QA: desktop 1440x1000 and mobile 390x844 inspected in light/dark themes. Chinese search yields one bamboo-flute article; category intersection yields empty state. Mobile menu expands, Escape closes, no horizontal overflow. Root font at 200% produces 32px body text without horizontal overflow.
+- Independent final review found one RSS channel homepage missing project base. New build assertion failed with / versus /my_blog/; fixed RSS site URL; complete tests/check/build/link verification passed. No other important review findings.
+- CI detects Pages publishing mode and only deploys when configured for Actions. Branch /docs and unconfigured repositories still receive build validation without conflicting deploy jobs.

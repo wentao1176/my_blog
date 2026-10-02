@@ -35,7 +35,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
 }
 button,
@@ -104,19 +104,19 @@ a:hover {
 }
 .eyebrow {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 2.4px;
   color: var(--accent);
   font-weight: 500;
 }
 .tiny {
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 1.7px;
   color: var(--muted);
 }
 .subtle {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .sr-only {
   position: absolute;
@@ -166,7 +166,7 @@ a:hover {
 }
 .brand-mark {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: 1.5rem;
   width: 36px;
   height: 38px;
   display: grid;
@@ -177,18 +177,18 @@ a:hover {
 }
 .brand-name {
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: 1.5625rem;
   letter-spacing: 3px;
 }
 .brand-name i {
   font-style: normal;
-  font-size: 17px;
+  font-size: 1.0625rem;
   color: var(--muted);
   margin: 0 3px;
 }
 .brand-name small {
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: 1px;
   font-weight: 400;
 }
@@ -199,7 +199,7 @@ a:hover {
   align-items: center;
 }
 #site-nav a {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--muted);
   height: 100%;
   display: flex;
@@ -278,7 +278,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   letter-spacing: 2.8px;
   margin-bottom: 25px;
 }
@@ -288,7 +288,7 @@ a:hover {
   background: var(--accent);
 }
 .hero h1 {
-  font-size: clamp(36px, 4.2vw, 56px);
+  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
   line-height: 1.5;
   letter-spacing: 5px;
   margin: 0 0 21px;
@@ -300,7 +300,7 @@ a:hover {
 }
 .hero-copy > p {
   color: #718795;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 2;
   letter-spacing: 1px;
   margin-bottom: 26px;
@@ -318,7 +318,7 @@ a:hover {
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 11px 22px;
-  font-size: 14px;
+  font-size: 0.875rem;
   background: var(--paper);
   color: var(--accent);
 }
@@ -335,7 +335,7 @@ a:hover {
   background: #426b80;
 }
 .quiet-link {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #5e7d8c;
   border-bottom: 1px solid #b6cbd4;
   padding-bottom: 3px;
@@ -346,12 +346,12 @@ a:hover {
   gap: 11px;
   margin-top: 30px;
   color: #8397a0;
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 2px;
 }
 .seal {
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   display: inline-flex;
   color: var(--seal);
   border: 1px solid var(--seal);
@@ -369,14 +369,14 @@ a:hover {
   color: #5d7e90;
   font-family: var(--serif);
   letter-spacing: 5px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .hero-coordinate {
   position: absolute;
   right: 0;
   bottom: 23px;
   color: #7c929c;
-  font-size: 11px;
+  font-size: 0.6875rem;
   letter-spacing: 1.5px;
 }
 [data-theme='dark'] .hero-art {
@@ -400,7 +400,7 @@ a:hover {
   justify-content: space-between;
   padding: 23px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
 }
 .welcome-line > span:first-child {
@@ -423,17 +423,17 @@ a:hover {
   margin-bottom: 23px;
 }
 .section-heading .eyebrow {
-  font-size: 11px;
+  font-size: 0.6875rem;
   margin-bottom: 9px;
 }
 .section-heading h2 {
-  font-size: 26px;
+  font-size: 1.625rem;
   letter-spacing: 2px;
   margin: 0;
 }
 .section-heading h2 small {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 0.8125rem;
   letter-spacing: 0;
   color: var(--muted);
 }
@@ -443,7 +443,7 @@ a:hover {
   margin: 0 6px;
 }
 .text-link {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--accent);
   padding-bottom: 3px;
   border-bottom: 1px solid #a8c2cf;
@@ -503,7 +503,7 @@ a:hover {
   font-family: var(--serif);
   writing-mode: vertical-rl;
   letter-spacing: 5px;
-  font-size: 16px;
+  font-size: 1rem;
   color: #60869a;
 }
 .post-card-body {
@@ -513,7 +513,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-bottom: 11px;
 }
@@ -521,13 +521,13 @@ a:hover {
   color: var(--accent);
 }
 .post-card h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.6;
   margin-bottom: 10px;
   letter-spacing: 0.4px;
 }
 .post-card p {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.9;
   margin-bottom: 19px;
@@ -544,7 +544,7 @@ a:hover {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .tags a:hover {
@@ -555,7 +555,7 @@ a:hover {
   align-items: center;
   gap: 5px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 .latest-section {
@@ -577,7 +577,7 @@ a:hover {
   padding: 20px 24px;
 }
 .latest-list .post-card h3 {
-  font-size: 19px;
+  font-size: 1.1875rem;
 }
 .latest-list .post-card p {
   margin-bottom: 13px;
@@ -589,7 +589,7 @@ a:hover {
 .all-posts-link {
   display: block;
   text-align: center;
-  font-size: 13px;
+  font-size: 0.8125rem;
   letter-spacing: 1px;
   color: var(--accent);
   border: 1px solid var(--line);
@@ -620,17 +620,17 @@ a:hover {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-size: 32px;
+  font-size: 2rem;
   margin: 0 auto 14px;
 }
 .profile-panel h3 {
   font-family: var(--sans);
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-bottom: 8px;
   letter-spacing: 1px;
 }
 .profile-panel > p {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-bottom: 24px;
 }
@@ -649,12 +649,12 @@ a:hover {
   border: 0;
 }
 .profile-counts strong {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 400;
   color: var(--accent);
 }
 .profile-counts span {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--muted);
 }
 .profile-github {
@@ -664,7 +664,7 @@ a:hover {
   gap: 8px;
   border-top: 1px solid var(--line);
   padding-top: 15px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
 }
 .side-section {
@@ -672,16 +672,16 @@ a:hover {
   border-bottom: 1px solid var(--line);
 }
 .side-section h3 {
-  font-size: 17px;
+  font-size: 1.0625rem;
   margin: 8px 0 11px;
   letter-spacing: 0.4px;
 }
 .side-section > .eyebrow {
-  font-size: 10px;
+  font-size: 0.625rem;
   letter-spacing: 1.9px;
 }
 .side-section p {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-bottom: 17px;
 }
@@ -707,12 +707,12 @@ a:hover {
 }
 .music-teaser b {
   display: block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
 }
 .music-teaser small {
   display: block;
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--muted);
   margin-top: 3px;
 }
@@ -733,7 +733,7 @@ a:hover {
   border: 1px solid var(--line);
   border-radius: 3px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 .tag-cloud a:hover {
   background: var(--accent-soft);
@@ -744,18 +744,18 @@ a:hover {
   color: var(--accent);
 }
 .quote-panel > span {
-  font-size: 25px;
+  font-size: 1.5625rem;
   line-height: 1;
 }
 .quote-panel p {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 2.1;
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
 .quote-panel small {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--muted);
 }
 .closing-note {
@@ -766,16 +766,16 @@ a:hover {
 }
 .closing-note > span:first-child {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 1.375rem;
   letter-spacing: 3px;
 }
 .closing-note p {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
   margin: 10px 0 14px;
 }
 .closing-note .tiny {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 .site-footer {
   border-top: 1px solid var(--line);
@@ -791,25 +791,25 @@ a:hover {
   gap: 24px;
 }
 .site-footer .brand-mark {
-  font-size: 19px;
+  font-size: 1.1875rem;
   width: 29px;
   height: 31px;
 }
 .site-footer .brand-name {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .site-footer .brand-name small {
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .footer-top > p {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin: 0;
 }
 .footer-links {
   display: flex;
   gap: 20px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .footer-links a {
@@ -820,7 +820,7 @@ a:hover {
 .footer-bottom {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--muted);
   padding-top: 26px;
   margin-top: 25px;
@@ -841,7 +841,7 @@ a:hover {
   margin-bottom: 17px;
 }
 .page-intro h1 {
-  font-size: 38px;
+  font-size: 2.375rem;
   letter-spacing: 3px;
   line-height: 1.6;
   margin-bottom: 15px;
@@ -849,7 +849,7 @@ a:hover {
 .page-intro p {
   color: var(--muted);
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .page-intro .text-link {
   display: inline-block;
@@ -880,13 +880,13 @@ a:hover {
   min-width: 0;
   width: 100%;
   color: var(--ink);
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .search-bar input::placeholder {
   color: var(--muted);
 }
 .search-bar kbd {
-  font-size: 12px;
+  font-size: 0.75rem;
   border: 1px solid var(--line);
   padding: 0 6px;
   border-radius: 3px;
@@ -899,7 +899,7 @@ a:hover {
   margin: 27px 0;
 }
 .filter-chip {
-  font-size: 13px;
+  font-size: 0.8125rem;
   border: 1px solid transparent;
   background: none;
   color: var(--muted);
@@ -912,7 +912,7 @@ a:hover {
   color: var(--accent);
 }
 #result-count {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-left: auto;
 }
@@ -933,23 +933,23 @@ a:hover {
 }
 .empty-state h2 {
   color: var(--ink);
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 .empty-state p {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .archive-year {
   margin-top: 35px;
 }
 .archive-year h2 {
   font-family: var(--sans);
-  font-size: 32px;
+  font-size: 2rem;
   color: var(--accent);
   font-weight: 300;
 }
 .archive-year h2 span {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 1rem;
   margin-left: 10px;
 }
 .timeline {
@@ -974,19 +974,19 @@ a:hover {
   top: 29px;
 }
 .timeline time {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
   padding-top: 5px;
   white-space: nowrap;
 }
 .timeline strong {
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 .timeline small {
   display: block;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 6px;
 }
@@ -1005,7 +1005,7 @@ a:hover {
 }
 .large-tag-cloud span {
   margin-left: 15px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .category-list a {
@@ -1016,17 +1016,17 @@ a:hover {
   padding: 27px 0;
 }
 .category-number {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .category-list h2 {
   flex: 1;
   margin: 0;
-  font-size: 25px;
+  font-size: 1.5625rem;
 }
 .category-list a > span:last-child {
   color: var(--accent);
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .article-shell {
   display: grid;
@@ -1036,7 +1036,7 @@ a:hover {
   padding-bottom: 70px;
 }
 .back-link {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--accent);
   display: inline-block;
   margin-bottom: 26px;
@@ -1047,24 +1047,24 @@ a:hover {
   margin-bottom: 35px;
 }
 .article-header h1 {
-  font-size: 35px;
+  font-size: 2.1875rem;
   line-height: 1.6;
   letter-spacing: 1px;
   margin: 16px 0;
 }
 .article-header > p {
   color: var(--muted);
-  font-size: 16px;
+  font-size: 1rem;
 }
 .article-meta {
   display: flex;
   gap: 23px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   margin: 20px 0 13px;
 }
 .prose {
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 2;
   color: var(--ink);
   overflow-wrap: anywhere;
@@ -1073,12 +1073,12 @@ a:hover {
   margin: 0 0 24px;
 }
 .prose h2 {
-  font-size: 26px;
+  font-size: 1.625rem;
   margin: 45px 0 18px;
   scroll-margin-top: 35px;
 }
 .prose h3 {
-  font-size: 21px;
+  font-size: 1.3125rem;
   margin: 30px 0 16px;
 }
 .prose blockquote {
@@ -1087,7 +1087,7 @@ a:hover {
   margin: 25px 0;
   padding: 16px 22px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .prose blockquote p {
   margin: 0;
@@ -1104,7 +1104,7 @@ a:hover {
   text-underline-offset: 4px;
 }
 .prose code {
-  font-size: 14px;
+  font-size: 0.875rem;
   background: var(--accent-soft);
   padding: 2px 6px;
   border-radius: 3px;
@@ -1115,7 +1115,7 @@ a:hover {
   border-radius: 5px;
   padding: 45px 20px 20px;
   overflow: auto;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.7;
   margin: 25px 0;
 }
@@ -1131,13 +1131,13 @@ a:hover {
   background: #eef4f7;
   border: 1px solid #cfdee5;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 0.75rem;
   padding: 3px 9px;
 }
 .prose table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .prose th,
 .prose td {
@@ -1151,7 +1151,7 @@ a:hover {
   padding-top: 44px;
 }
 .toc h3 {
-  font-size: 18px;
+  font-size: 1.125rem;
   margin: 10px 0 20px;
 }
 .toc nav {
@@ -1160,7 +1160,7 @@ a:hover {
   border-left: 1px solid var(--line);
 }
 .toc a {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
   padding: 7px 15px;
   line-height: 1.6;
@@ -1171,11 +1171,11 @@ a:hover {
 }
 .toc a.nested {
   padding-left: 27px;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 .toc p {
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
   margin-top: 30px;
 }
@@ -1186,7 +1186,7 @@ a:hover {
   border-top: 1px solid var(--line);
 }
 .article-ending p {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--muted);
   margin-top: 15px;
 }
@@ -1202,14 +1202,14 @@ a:hover {
   border-radius: 4px;
 }
 .adjacent-posts small {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   display: block;
   margin-bottom: 7px;
 }
 .adjacent-posts strong {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
 }
 .about-content {
@@ -1226,12 +1226,12 @@ a:hover {
 }
 .about-portrait > span {
   font-family: var(--serif);
-  font-size: 65px;
+  font-size: 4.0625rem;
   color: var(--accent);
 }
 .about-portrait p {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 2.3;
   letter-spacing: 3px;
   margin-bottom: 0;
@@ -1258,17 +1258,17 @@ a:hover {
   place-items: center;
   background: var(--accent-soft);
   font-family: var(--serif);
-  font-size: 42px;
+  font-size: 2.625rem;
   color: var(--accent);
   letter-spacing: 7px;
   min-height: 240px;
 }
 .project-card h2 {
-  font-size: 25px;
+  font-size: 1.5625rem;
   margin: 13px 0;
 }
 .project-card p {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .project-card .tag-cloud {
@@ -1286,11 +1286,11 @@ a:hover {
   border-radius: 5px;
 }
 .friend-card h2 {
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 .friend-card p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .music-room {
   background: var(--paper);
@@ -1321,12 +1321,12 @@ a:hover {
 .music-art-label span {
   writing-mode: vertical-rl;
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: 1.875rem;
   letter-spacing: 8px;
 }
 .music-art-label small {
   writing-mode: vertical-rl;
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 4px;
   padding-top: 5px;
 }
@@ -1334,12 +1334,12 @@ a:hover {
   padding: 35px;
 }
 .music-room-content h2 {
-  font-size: 28px;
+  font-size: 1.75rem;
   margin: 13px 0;
 }
 .music-room-content > p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .music-unconfigured {
   display: flex;
@@ -1352,11 +1352,11 @@ a:hover {
   border-radius: 4px;
 }
 .music-unconfigured > span {
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .music-unconfigured small {
   display: block;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 4px;
 }
@@ -1372,7 +1372,7 @@ a:hover {
   padding: 37px 0;
 }
 .music-reading h2 {
-  font-size: 22px;
+  font-size: 1.375rem;
   margin: 12px 0 0;
 }
 .not-found {
@@ -1380,7 +1380,7 @@ a:hover {
   min-height: 65vh;
 }
 .not-found h1 {
-  font-size: 45px;
+  font-size: 2.8125rem;
   line-height: 1.6;
   margin: 25px 0;
 }
@@ -1435,7 +1435,7 @@ a:hover {
     display: none;
   }
   .hero h1 {
-    font-size: 44px;
+    font-size: 2.75rem;
     letter-spacing: 3px;
   }
   .article-grid {
@@ -1467,7 +1467,7 @@ a:hover {
     min-height: 470px;
   }
   .hero h1 {
-    font-size: 38px;
+    font-size: 2.375rem;
   }
   .hero-copy {
     width: 65%;
@@ -1480,7 +1480,7 @@ a:hover {
     object-position: 60% center;
   }
   .hero-coordinate {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
   .welcome-line > span:last-child {
     display: none;
@@ -1502,10 +1502,10 @@ a:hover {
     gap: 5px;
   }
   .brand-name small {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
   .brand-name {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
   .site-header {
     height: 76px;
@@ -1530,13 +1530,13 @@ a:hover {
     height: 72px;
   }
   .brand-name {
-    font-size: 21px;
+    font-size: 1.3125rem;
     letter-spacing: 2px;
   }
   .brand-mark {
     width: 30px;
     height: 33px;
-    font-size: 22px;
+    font-size: 1.375rem;
   }
   .brand {
     gap: 9px;
@@ -1545,7 +1545,7 @@ a:hover {
     margin: 0;
   }
   .brand-name small {
-    font-size: 12px;
+    font-size: 0.75rem;
     letter-spacing: 0.5px;
   }
   .header-tools {
@@ -1613,17 +1613,17 @@ a:hover {
     padding-bottom: 65px;
   }
   .hero-copy .eyebrow {
-    font-size: 10px;
+    font-size: 0.625rem;
     letter-spacing: 2px;
     margin-bottom: 23px;
   }
   .hero h1 {
-    font-size: 36px;
+    font-size: 2.25rem;
     letter-spacing: 3px;
     line-height: 1.65;
   }
   .hero-copy > p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #516d7c;
   }
   .hero-actions {
@@ -1634,10 +1634,10 @@ a:hover {
   }
   .hero-note {
     margin-top: 26px;
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
   .vertical-poem {
-    font-size: 11px;
+    font-size: 0.6875rem;
     letter-spacing: 4px;
     top: 45px;
     right: -5px;
@@ -1653,7 +1653,7 @@ a:hover {
   }
   .welcome-line {
     padding: 18px 0;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .content-grid {
     padding-top: 30px;
@@ -1663,10 +1663,10 @@ a:hover {
     margin-bottom: 19px;
   }
   .section-heading h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .section-heading .eyebrow {
-    font-size: 10px;
+    font-size: 0.625rem;
     letter-spacing: 1.8px;
   }
   .featured-grid {
@@ -1680,13 +1680,13 @@ a:hover {
     padding: 21px;
   }
   .post-card h3 {
-    font-size: 21px;
+    font-size: 1.3125rem;
   }
   .post-card p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .post-meta {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .latest-section {
     margin-top: 31px;
@@ -1717,36 +1717,36 @@ a:hover {
     padding: 25px;
   }
   .profile-panel > p {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
   .profile-counts span {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .profile-github {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .side-section h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .side-section p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .music-teaser b {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .music-teaser small {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .tag-cloud a,
   .tag-cloud > span {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
   .closing-note {
     margin-top: 35px;
     padding: 31px 0;
   }
   .closing-note > span:first-child {
-    font-size: 19px;
+    font-size: 1.1875rem;
     letter-spacing: 1px;
   }
   .footer-top {
@@ -1757,21 +1757,21 @@ a:hover {
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .footer-links {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .page-intro {
     padding-top: 38px;
     padding-bottom: 28px;
   }
   .page-intro h1 {
-    font-size: 30px;
+    font-size: 1.875rem;
     letter-spacing: 1px;
   }
   .page-intro p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .archive-content {
     padding-bottom: 55px;
@@ -1783,7 +1783,7 @@ a:hover {
     gap: 7px;
   }
   .filter-chip {
-    font-size: 13px;
+    font-size: 0.8125rem;
     padding: 7px 10px;
   }
   #result-count {
@@ -1794,7 +1794,7 @@ a:hover {
     padding: 12px 15px;
   }
   .search-bar input {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .timeline {
     padding-left: 21px;
@@ -1806,16 +1806,16 @@ a:hover {
     left: -25px;
   }
   .timeline strong {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .timeline time {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .article-shell {
     padding-top: 30px;
   }
   .article-header h1 {
-    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 1.7;
   }
   .article-meta {
@@ -1823,14 +1823,14 @@ a:hover {
     flex-wrap: wrap;
   }
   .prose {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 2;
   }
   .prose h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .prose h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .prose blockquote {
     padding: 14px 17px;
@@ -1848,7 +1848,7 @@ a:hover {
     gap: 35px;
   }
   .about-portrait > span {
-    font-size: 54px;
+    font-size: 3.375rem;
   }
   .about-content .prose h2:first-child {
     margin-top: 5px;
@@ -1872,19 +1872,19 @@ a:hover {
     gap: 17px;
   }
   .music-reading h2 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .friend-grid {
     grid-template-columns: 1fr;
   }
   .not-found h1 {
-    font-size: 33px;
+    font-size: 2.0625rem;
   }
   .not-found .button {
     margin-bottom: 12px;
   }
   .category-list h2 {
-    font-size: 21px;
+    font-size: 1.3125rem;
   }
   .category-list a {
     gap: 16px;
@@ -1899,5 +1899,24 @@ a:hover {
   *:after {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    height: auto;
+    min-height: 72px;
+  }
+  .header-inner {
+    height: auto;
+    min-height: 72px;
+    padding: 12px 0;
+    flex-wrap: wrap;
+  }
+  .header-tools {
+    margin-left: auto;
+  }
+  #site-nav {
+    top: 100%;
   }
 }

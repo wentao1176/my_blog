@@ -37,6 +37,14 @@ assert.ok(
 const index = JSON.parse(readFileSync(join(root, 'search.json'), 'utf8'));
 assert.ok(index.length >= 1, 'Search index should contain published posts');
 for (const post of index) assert.ok(post.url.startsWith(`${base}/posts/`));
+const rssXml = readFileSync(join(root, 'rss.xml'), 'utf8');
+const rssHome = rssXml.match(/<link>([^<]+)<\/link>/)?.[1];
+assert.equal(
+  new URL(rssHome).pathname,
+  `${base}/`,
+  'RSS channel homepage must include project base',
+);
+assert.ok(!rssXml.includes(`${base}${base}/`), 'RSS base must not be doubled');
 assert.ok(
   readFileSync(join(root, 'rss.xml'), 'utf8').includes(`${base}/posts/`),
   'RSS must include base path',

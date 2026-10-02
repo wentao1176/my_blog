@@ -10,6 +10,8 @@
 
 方式二（后续写作推荐）：同一位置将 Source 设为 **GitHub Actions**。内置 `.github/workflows/deploy.yml` 会在推送到 main 时检查、构建并发布，或手动触发工作流。两种方式任选其一。
 
+工作流会检查 Pages 的发布模式：未启用 Pages 或使用分支部署时，只构建验证并保存产物；选择 GitHub Actions 后才执行在线部署，避免两种发布方式互相干扰。
+
 发布成功后的预期地址：`https://wentao1176.github.io/my_blog/`。是否已上线请以仓库 Pages 设置和部署结果为准。
 
 ## 文件结构
@@ -59,6 +61,7 @@ npm run dev
 npm test
 npm run check
 npm run build
+npm run verify:build
 ```
 
 构建会重新生成 `docs/`。请修改 `src/` 和 `public/`，不要直接编辑构建文件。使用分支部署时，把更新的源码和 `docs/` 一起提交；使用 Actions 时，会自动从源码构建。
