@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="一份纯文本，一扇清楚的阅读窗口。记录我的 Markdown 预览器，以及代码、公式与图表如何在同一页里相遇。"><meta name="theme-color" content="#edf5f8"><title>lite-md-viewer：让 Markdown 阅读轻一点 · 韦@舀 · 个人博客</title><link rel="canonical" href="https://www.xuanwentao.cn/posts/lite-md-viewer/"><meta property="og:title" content="lite-md-viewer：让 Markdown 阅读轻一点"><meta property="og:description" content="一份纯文本，一扇清楚的阅读窗口。记录我的 Markdown 预览器，以及代码、公式与图表如何在同一页里相遇。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.xuanwentao.cn/posts/lite-md-viewer/"><link rel="icon" type="image/png" sizes="64x64" href="../../favicon.png"><link rel="alternate" type="application/rss+xml" title="韦@舀 · 个人博客" href="../../rss.xml"><script>
+      try {
+        const t = localStorage.getItem('wentao-theme');
+        if (
+          t === 'dark' ||
+          (!t && matchMedia('(prefers-color-scheme: dark)').matches)
+        )
+          document.documentElement.dataset.theme = 'dark';
+      } catch {}
+    </script><link rel="stylesheet" href="../../_astro/Layout.sKhjkp-J.css"></head><body><a class="skip-link" href="#main">跳转到正文</a><div class="ambient-atmosphere" aria-hidden="true"><span></span><span></span></div><header class="site-header"><div class="header-inner"><a class="brand" href="../../"><span class="brand-mark"><img class="paddle-logo" src="../../images/table-tennis-logo.webp" alt="" aria-hidden="true" width="384" height="256"></span><span class="brand-name">韦@舀</span></a><nav id="site-nav" aria-label="主导航"><a href="../../">首页</a><a class="active" href="../">文章</a><a href="../../archives/">归档</a><a href="../../music/">音乐</a><a href="../../about/">关于</a></nav><div class="header-tools"><a class="icon-button" href="../#search" aria-label="搜索文章"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-5-5 M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0"></path></svg></a><button class="icon-button" id="theme-toggle" aria-label="切换深色模式" title="切换主题"><span class="moon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10"></path></svg></span><span class="sun-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 1.4 1.4m10 10 1.4 1.4M5.6 18.4 1.4-1.4m10-10 1.4-1.4 M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0"></path></svg></span></button><button class="icon-button menu-toggle" id="menu-toggle" aria-label="展开导航" aria-expanded="false" aria-controls="site-nav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></div></header><main id="main"><div class="article-shell wrap"><article><a class="back-link" href="../">返回全部文章</a><header class="article-header"><div class="eyebrow">项目手记</div><h1>lite-md-viewer：让 Markdown 阅读轻一点</h1><p>一份纯文本，一扇清楚的阅读窗口。记录我的 Markdown 预览器，以及代码、公式与图表如何在同一页里相遇。</p><div class="article-meta"><time datetime="2026-10-03T00:00:00.000Z">2026.10.03</time><span>韦@舀</span><span>7 分钟阅读</span></div><div class="tags"><a href="../../tags/%E5%BC%80%E6%BA%90/">#开源</a><a href="../../tags/Markdown/">#Markdown</a><a href="../../tags/Electron/">#Electron</a><a href="../../tags/Vue/">#Vue</a></div></header><div class="prose"><blockquote>
+<p>让工具退后一步，让文字走到眼前。</p>
+</blockquote>
+<p>Markdown 很适合记录：几行标题、一段代码、一张表格，就能把零散的想法整理成文档。但当笔记逐渐变长，或者出现公式和流程图时，一份纯文本也需要一个清楚、安静的阅读窗口。</p>
+<p>这篇手记介绍我的开源项目 <strong>lite-md-viewer</strong>。它是一款桌面 Markdown 编辑与预览工具，应用名称为 <strong>WTMD</strong>，把源码、排版和目录放在同一个工作空间里。</p>
+<p><a href="https://github.com/wentao1176/lite-md-viewer">查看 GitHub 项目</a> · <a href="https://github.com/wentao1176/lite-md-viewer/releases">下载发布版本</a></p>
+<h2 id="从一份-md-开始">从一份 .md 开始</h2>
+<p>打开文档后，左侧是 Markdown 源码，右侧是实时预览。改动文字时，能同时看到标题、段落与代码的呈现方式；需要专心阅读时，也可以切换到预览全屏。</p>
+<p>长文档的侧边目录从标题生成，用来跳转到正在寻找的章节。源码与预览之间的分栏、目录宽度、字体和预览缩放，都可以按阅读习惯调整。</p>
+<p>这些细节服务于同一件事：写的时候容易修改，读的时候容易找到重点。</p>
+<h2 id="让技术笔记完整地呈现">让技术笔记完整地呈现</h2>
+<p>技术文档往往不只有段落。它可能是一段待复用的代码、一页推导，也可能是一张说明系统关系的图。</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>对应的阅读能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码片段</td>
+<td>Shiki 语法高亮，代码块复制</td>
+</tr>
+<tr>
+<td>数学表达</td>
+<td>KaTeX 行内公式与独立公式块</td>
+</tr>
+<tr>
+<td>结构与流程</td>
+<td>Mermaid 图表渲染</td>
+</tr>
+<tr>
+<td>长篇文档</td>
+<td>标题目录与章节定位</td>
+</tr>
+<tr>
+<td>图片资料</td>
+<td>点击图片放大查看</td>
+</tr>
+</tbody>
+</table>
+<p>这些内容都留在 Markdown 文档中，不需要把笔记拆成几种不同的文件格式。阅读代码、公式和图表的能力，来自各自专门的渲染工具，再由预览界面统一呈现。</p>
+<h2 id="留给阅读的空间">留给阅读的空间</h2>
+<p>WTMD 提供三套主题，可以在不同光线下选择合适的界面。预览字体可以调整，缩放范围为 <strong>50% 到 250%</strong>，工具栏也能收起。</p>
+<p>本地文档的编辑和渲染可以离线使用；检查更新与下载新版本则需要联网。文档中引用的远程图片等外部资源，也取决于对应资源是否可访问。</p>
+<p>写完之后，桌面端还可以导出 <strong>HTML 或 PDF</strong>。导出时可选择页面底色，以及是否添加页码，方便把笔记留存或分享出去。</p>
+<h2 id="界面背后的几层结构">界面背后的几层结构</h2>
+<p>项目以 <strong>Electron</strong> 承载桌面窗口与系统能力，<strong>Vue 3、Vite 和 TypeScript</strong> 负责界面与开发构建。源码编辑区使用 <strong>CodeMirror 6</strong>，Markdown 解析使用 <strong>markdown-it</strong>，代码、公式和图表分别交给 Shiki、KaTeX 与 Mermaid。</p>
+<p>目录结构也反映了这些职责：</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>lite-md-viewer/</span></span>
+<span class="line"><span>├── electron/          桌面主进程</span></span>
+<span class="line"><span>├── src/</span></span>
+<span class="line"><span>│   ├── components/    编辑、预览与工具栏组件</span></span>
+<span class="line"><span>│   ├── engine/        Markdown 渲染与文档导出</span></span>
+<span class="line"><span>│   └── App.vue        主界面与交互协调</span></span>
+<span class="line"><span>├── android/           Android 客户端源码</span></span>
+<span class="line"><span>└── .github/workflows/ 自动构建流程</span></span></code></pre>
+<p>桌面打包由 electron-builder 完成。Windows 安装包使用 NSIS；Linux 配置包含 Debian 安装包与 AppImage。更新通过 GitHub Releases 分发。</p>
+<p>仓库还包含基于 <strong>Kotlin、Jetpack Compose 和 Markwon</strong> 的 Android 客户端，用于打开 Markdown 文件、渲染内容并通过系统打印服务导出 PDF。它有独立的实现，功能范围与桌面端有所不同；源码可在 Android Studio 中构建。</p>
+<h2 id="下载或从源码运行">下载，或从源码运行</h2>
+<p>直接使用时，前往项目的 <a href="https://github.com/wentao1176/lite-md-viewer/releases">Releases 页面</a>，选择对应系统的安装包。Windows 打包配置使用 <code>WTMD-Setup-版本号.exe</code> 命名；具体文件以发布页为准。</p>
+<p>想看看实现，可以从源码启动：</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> clone</span><span style="color:#032F62"> https://github.com/wentao1176/lite-md-viewer.git</span></span>
+<span class="line"><span style="color:#005CC5">cd</span><span style="color:#032F62"> lite-md-viewer</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> install</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> dev</span></span></code></pre>
+<p>需要构建桌面安装包时，仓库提供了对应命令：</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> electron:build:win</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> electron:build:linux</span></span></code></pre>
+<h2 id="一份工具也是一页手记">一份工具，也是一页手记</h2>
+<p>这个项目把编辑与阅读放在一起，让纯文本笔记拥有完整的呈现方式。对博客而言，它也是一件可以持续记录的作品：界面如何调整，渲染如何组织，桌面应用如何构建与分发，都值得慢慢写下来。</p>
+<p>项目采用 <strong>MIT 许可证</strong>。如果你也在使用 Markdown，欢迎去仓库看看源码，或者通过 Issues 留下问题与建议。</p>
+<hr>
+<p>本文依据项目 <a href="https://github.com/wentao1176/lite-md-viewer/blob/main/README.md">README</a>、<a href="https://github.com/wentao1176/lite-md-viewer/blob/main/src/App.vue">桌面界面源码</a>与<a href="https://github.com/wentao1176/lite-md-viewer/blob/main/electron-builder.yml">打包配置</a>整理，记录日期为 2026 年 10 月 3 日。功能与下载文件以仓库后续更新为准。</p>
+</div><div class="article-ending"><span class="seal">记</span><p>谢谢读到这里。愿文字，与你有所相遇。</p></div><nav class="adjacent-posts" aria-label="相邻文章"><a href="../first-entry/"><small>上一篇</small><strong>初次相见：给文字一个安静的地方</strong></a><span></span></nav></article><aside class="toc"><div class="eyebrow">ON THIS PAGE</div><h3>此篇目录</h3><nav aria-label="文章目录"><a href="#从一份-md-开始">从一份 .md 开始</a><a href="#让技术笔记完整地呈现">让技术笔记完整地呈现</a><a href="#留给阅读的空间">留给阅读的空间</a><a href="#界面背后的几层结构">界面背后的几层结构</a><a href="#下载或从源码运行">下载，或从源码运行</a><a href="#一份工具也是一页手记">一份工具，也是一页手记</a></nav><p>一字一句，慢慢读。</p></aside></div></main><footer class="site-footer"><div class="footer-top"><a class="brand" href="../../"><span class="brand-mark"><img class="paddle-logo" src="../../images/table-tennis-logo.webp" alt="" aria-hidden="true" width="384" height="256"></span><span class="brand-name">韦@舀</span></a><p>一半烟火，一半诗意。记录，也是与世界相遇。</p><div class="footer-links"><a href="../../projects/">项目</a><a href="../../friends/">友链</a><a href="../../rss.xml" aria-label="RSS 订阅"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4a16 16 0 0 1 16 16M4 11a9 9 0 0 1 9 9 M5 20h.01"></path></svg> RSS</a></div></div><div class="footer-bottom"><span>© 2026 韦@舀</span><span>山水有相逢，文字有回响 <span class="footer-seal">记</span></span></div></footer><script type="module" src="../../_astro/Layout.astro_astro_type_script_index_0_lang.CL5sCjgM.js"></script></body></html>
