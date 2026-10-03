@@ -1072,6 +1072,24 @@ a:hover {
 .prose p {
   margin: 0 0 24px;
 }
+.prose figure {
+  margin: 32px 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 5px;
+}
+.prose figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+.prose figcaption {
+  padding: 10px 4px 2px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+}
 .prose h2 {
   font-size: 1.625rem;
   margin: 45px 0 18px;
