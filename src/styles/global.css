@@ -1262,6 +1262,67 @@ a:hover {
   gap: 15px;
   flex-wrap: wrap;
 }
+.education-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 28px;
+  padding: 24px;
+  margin: 26px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+.education-details dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+.education-details dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1rem;
+}
+.university-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  margin: 30px 0;
+}
+.prose .university-card > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+.university-copy {
+  padding: 26px;
+}
+.prose .university-copy h3 {
+  margin: 8px 0 16px;
+}
+.prose .university-motto {
+  font-family: var(--serif);
+  color: var(--accent);
+  letter-spacing: 3px;
+}
+.university-copy > a {
+  font-size: 0.8125rem;
+}
+@media (max-width: 480px) {
+  .education-details {
+    padding: 18px;
+    gap: 18px 12px;
+  }
+  .education-details dd {
+    font-size: 0.875rem;
+  }
+  .university-copy {
+    padding: 20px;
+  }
+}
 .project-card {
   display: grid;
   grid-template-columns: 200px minmax(0, 1fr);

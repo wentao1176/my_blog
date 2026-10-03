@@ -10,7 +10,7 @@ import Logo from '../components/Logo.astro';
   <section class="page-intro wrap">
     <div class="eyebrow">A LITTLE ABOUT ME</div>
     <h1>你好，我是{site.author}。</h1>
-    <p>在代码里探索，在山水间停留。</p>
+    <p>在湖南大学学习，在代码与生活之间，慢慢积累自己的作品。</p>
   </section>
   <div class="wrap narrow archive-content about-content">
     <div class="about-portrait">
@@ -22,19 +22,90 @@ import Logo from '../components/Logo.astro';
       </p>
     </div>
     <div class="prose">
-      <h2>一方属于自己的天地</h2>
+      <h2>在湖南大学</h2>
       <p>
-        这里是{site.author}
-        的个人博客。它承载技术笔记、生活随记，以及与音乐有关的灵感。
+        你好，我是{site.author}，湖南大学智能科学与技术专业的 2024
+        级本科生，目前就读大三。
+        这里是我的个人博客，记录学习中的探索，也收集校园之外的经历。
+      </p>
+      <dl class="education-details" aria-label="我的就学信息">
+        <div>
+          <dt>就读学校</dt>
+          <dd>湖南大学</dd>
+        </div>
+        <div>
+          <dt>所学专业</dt>
+          <dd>智能科学与技术</dd>
+        </div>
+        <div>
+          <dt>入学届别</dt>
+          <dd>2024 级</dd>
+        </div>
+        <div>
+          <dt>学习阶段</dt>
+          <dd>本科三年级</dd>
+        </div>
+      </dl>
+      <aside class="university-card" aria-label="湖南大学简介">
+        <img
+          src={url('/images/hnu-emblem.jpg')}
+          alt="湖南大学官方校徽，以岳麓书院为主体"
+          width="701"
+          height="358"
+          loading="lazy"
+        />
+        <div class="university-copy">
+          <span class="eyebrow">HUNAN UNIVERSITY</span>
+          <h3>千年学府，书院文脉</h3>
+          <p>
+            湖南大学办学起源于公元 976 年创办的岳麓书院，1926
+            年定名湖南大学，是教育部直属全国重点大学。千年的书院传统与现代大学的探索精神，在这里相遇。
+          </p>
+          <p class="university-motto">实事求是 · 敢为人先</p>
+          <a
+            href="https://www.hnu.edu.cn/hdgk/xxjj.htm"
+            target="_blank"
+            rel="noreferrer"
+          >
+            了解湖南大学 <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </aside>
+      <p>
+        对我来说，学习不只发生在课堂和书本里。把一个想法写成程序，把一份笔记整理清楚，
+        或者走进一个陌生的村庄，认真听一段生活的故事，都能带来新的理解。
+      </p>
+      <h2>把想法做成作品</h2>
+      <p>
+        我在 GitHub 上分享自己的项目，也在这里记录它们的用途和实现。 其中，
+        <a href={url('/posts/lite-md-viewer/')}>lite-md-viewer</a>
+        是一款 Markdown
+        编辑与预览工具，让代码、公式和图表在同一个阅读窗口中呈现。
       </p>
       <p>
-        希望每一次打开这里，都像走进一处安静的山间小屋。在文字与山水之间，找到一点自己的节奏。
+        这个博客也是一件持续完善的作品。浅蓝色的山水、轻轻移动的船与云雾，
+        是我为文字留出的背景；文章则用来保存做事的过程和当时的思考。
       </p>
-      <h2>在这里可以读到</h2>
+      <h2>走出校园，走进苗乡</h2>
+      <p>
+        2026 年夏天，我随湖南大学计算机学院“湘伴耘途”三下乡团队，
+        来到怀化麻阳的石垅溪村。入户走访、支教课堂和田间观察，
+        让我有机会把校园里的学习与具体的生活联系起来。
+      </p>
+      <p>
+        这段经历写在
+        <a href={url('/posts/shilongxi-summer/')}>《在石垅溪的夏天》</a>里，
+        相关活动与照片也整理在
+        <a href="https://www.myshilongxi.cn/" target="_blank" rel="noreferrer">
+          麻阳苗乡暖心家园
+        </a>
+        网站。
+      </p>
+      <h2>这里留下什么</h2>
       <ul>
-        <li>技术笔记：把探索和问题的解决过程留下来。</li>
-        <li>生活随记：收集日常里值得记录的瞬间。</li>
-        <li>音乐与灵感：让文字之外的声音，也有一席之地。</li>
+        <li>学习与技术：记录问题、尝试与解决过程。</li>
+        <li>项目与作品：介绍自己做的工具，以及值得继续改进的地方。</li>
+        <li>生活与实践：保留校园日常、沿途风景和相遇的故事。</li>
       </ul>
       <h2>让我们相遇</h2>
       <p>你可以在 GitHub 找到我，也可以通过 RSS 订阅新的文章。</p>
