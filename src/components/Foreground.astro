@@ -1,93 +1,18 @@
 ---
-const clusters = [
-  [395, 365, -26, 1.05],
-  [344, 299, 17, 0.9],
-  [281, 237, -33, 0.82],
-  [223, 184, 22, 0.7],
-  [175, 128, -18, 0.58],
-  [439, 247, 34, 0.9],
-  [371, 165, -15, 0.7],
-  [310, 94, 20, 0.62],
-];
+import { url } from '../lib/posts';
 ---
 
 <div class="landscape-depth" aria-hidden="true">
   <div class="depth-branch depth-branch-near">
-    <svg viewBox="0 0 520 500" class="bamboo-sculpture" focusable="false">
-      <defs>
-        <linearGradient id="bamboo-stem" x1="0" x2="1">
-          <stop stop-color="#183f4c" />
-          <stop offset=".4" stop-color="#6e9d9f" />
-          <stop offset=".65" stop-color="#3d6d75" />
-          <stop offset="1" stop-color="#173d4c" />
-        </linearGradient>
-        <linearGradient id="bamboo-leaf" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#8baeb1" />
-          <stop offset=".45" stop-color="#436e7c" />
-          <stop offset="1" stop-color="#183b50" />
-        </linearGradient>
-        <g id="leaf-spray">
-          <path
-            d="M0 0 Q-42 -21 -94 -17 M0 0 Q-30 -46 -53 -68 M0 0 Q36 -29 74 -31"
-            fill="none"
-            stroke="#315b68"
-            stroke-width="2"
-          />
-          <g fill="url(#bamboo-leaf)">
-            <path d="M-18 -8 Q-40 -73 -71 -90 Q-56 -25 -18 -8Z" />
-            <path d="M-40 -15 Q-69 -54 -108 -48 Q-75 -20 -40 -15Z" />
-            <path d="M-63 -18 Q-84 4 -117 17 Q-88 -27 -63 -18Z" />
-            <path d="M-30 -38 Q-16 -68 -21 -105 Q-44 -70 -30 -38Z" />
-            <path d="M-47 -57 Q-64 -95 -96 -109 Q-81 -63 -47 -57Z" />
-            <path d="M22 -16 Q34 -62 68 -78 Q54 -28 22 -16Z" />
-            <path d="M45 -26 Q76 -54 107 -49 Q76 -25 45 -26Z" />
-            <path d="M4 -2 Q24 21 54 56 Q38 -2 4 -2Z" />
-          </g>
-          <path
-            d="M-20 -9 L-67 -82 M23 -17 L64 -72"
-            stroke="#b2cacc"
-            stroke-width=".8"
-            opacity=".55"
-          />
-        </g>
-      </defs>
-      <g
-        class="bamboo-stalks"
-        fill="none"
-        stroke="url(#bamboo-stem)"
-        stroke-linecap="round"
-      >
-        <path d="M507 520 Q423 374 318 277 Q218 185 147 87" stroke-width="11" />
-        <path d="M543 503 Q473 312 390 182 Q343 110 285 61" stroke-width="8" />
-        <path
-          d="M428 382 Q380 288 312 266 M324 283 Q283 200 217 179 M389 183 Q393 133 366 109"
-          stroke-width="3"
-        />
-      </g>
-      <g stroke="#b4c9c8" stroke-width="3" opacity=".7">
-        <path d="M422 393 l13 -9 M347 312 l12 -10 M271 242 l11 -8 M209 174 l9 -6 M473 337 l10 -5 M425 245 l10 -6 M376 160 l8 -5" />
-      </g>
-      {clusters.map(([x, y, angle, scale], i) => (
-        <g transform={`translate(${x} ${y}) rotate(${angle}) scale(${scale})`}>
-          <g class="leaf-spray" style={`--leaf-delay:${i * -0.67}s`}>
-            <use href="#leaf-spray" />
-          </g>
-        </g>
-      ))}
-    </svg>
-  </div>
-  <div class="depth-branch depth-branch-far">
-    <svg viewBox="0 0 440 240" focusable="false">
-      <g fill="none" stroke="#507782" stroke-linecap="round">
-        <path d="M450 5 Q336 90 220 109 Q155 119 59 190" stroke-width="8" />
-        <path
-          d="M318 76 Q252 57 180 25 M228 106 Q189 159 144 210 M132 143 Q91 119 28 109"
-          stroke-width="3"
-        />
-      </g>
-      <g fill="#668b94">
-        <path d="M311 77 Q265 14 244 5 Q254 61 311 77Z M271 65 Q216 89 167 76 Q218 52 271 65Z M224 106 Q181 58 138 47 Q161 96 224 106Z M188 142 Q127 151 99 186 Q157 183 188 142Z M151 135 Q98 91 62 90 Q92 131 151 135Z M119 151 Q72 165 38 218 Q92 204 119 151Z" />
-      </g>
-    </svg>
+    <div class="bamboo-sculpture">
+      <img
+        class="leaf-spray"
+        src={url('/images/watercolor-bamboo.webp')}
+        width="700"
+        height="726"
+        alt=""
+        style="--leaf-delay:-1s"
+      />
+    </div>
   </div>
 </div>
