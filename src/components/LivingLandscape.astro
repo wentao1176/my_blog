@@ -1,0 +1,88 @@
+---
+const ripples = Array.from({ length: 22 }, (_, i) => ({
+  x: 25 + ((i * 139) % 1460),
+  y: 22 + ((i * 31) % 148),
+  length: 35 + ((i * 43) % 150),
+}));
+---
+
+<div class="living-landscape" aria-hidden="true">
+  <div class="lake-surface">
+    <svg viewBox="0 0 1600 190" preserveAspectRatio="none" focusable="false">
+      <defs>
+        <linearGradient id="living-lake" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#dce7e6" stop-opacity="0" />
+          <stop offset=".2" stop-color="#dce7e6" />
+          <stop offset=".7" stop-color="#e3eeee" />
+          <stop offset="1" stop-color="#f9fbfb" />
+        </linearGradient>
+      </defs>
+      <path d="M0 0H1600V190H0Z" fill="url(#living-lake)" />
+      <g
+        class="water-reflections"
+        fill="none"
+        stroke="#6e9ca9"
+        stroke-width="1"
+      >
+        {ripples.map(({ x, y, length }, i) => (
+          <path
+            class="lake-ripple"
+            style={`--ripple-delay:${i * -0.63}s;--ripple-duration:${4 + (i % 5)}s`}
+            d={`M${x} ${y} q${length / 4} -3 ${length / 2} 0 t${length / 2} 0`}
+          />
+        ))}
+      </g>
+      <g class="water-glints" stroke="#fff" stroke-width="2" fill="none">
+        <path d="M580 39h76m-190 21h128m360 31h85m-271 27h116m-464 21h83m720 20h134" />
+      </g>
+    </svg>
+  </div>
+  <div class="drifting-boat">
+    <div class="boat-wake">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <svg class="boat-body" viewBox="0 0 180 90" focusable="false">
+      <defs>
+        <linearGradient id="boat-hull" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#678e97" />
+          <stop offset="1" stop-color="#2f515f" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M12 65 Q78 73 168 59 L151 75 Q70 85 30 74Z"
+        fill="url(#boat-hull)"
+      />
+      <path
+        d="M12 65 Q78 73 168 59"
+        fill="none"
+        stroke="#afc0be"
+        stroke-width="2"
+      />
+      <path d="M52 65 Q51 32 75 33 Q101 31 113 65Z" fill="#789392" />
+      <path
+        d="M52 65 Q55 37 75 33 M70 67 Q70 38 79 34 M90 67 Q91 40 85 35 M107 65 Q103 45 90 36"
+        stroke="#c1ccc2"
+        stroke-width="1.5"
+        fill="none"
+      />
+      <path d="M126 60 Q125 45 132 42 L137 45 L142 61Z" fill="#365763" />
+      <circle cx="133" cy="38" r="4" fill="#496977" />
+      <path d="M124 34 L141 35 L133 29Z" fill="#859a91" />
+      <g class="boat-oar">
+        <path d="M130 49 L160 84" stroke="#486a74" stroke-width="2" />
+        <path
+          d="M153 77 L164 88"
+          stroke="#486a74"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+    <div class="boat-reflection"></div>
+  </div>
+  <div class="cloud-stream cloud-stream-high"></div>
+  <div class="cloud-stream cloud-stream-low"></div>
+  <div class="cloud-stream cloud-stream-lake"></div>
+</div>

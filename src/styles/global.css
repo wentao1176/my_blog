@@ -2392,3 +2392,215 @@ a:hover {
     animation: none;
   }
 }
+/* An independently moving lake, boat and cloud banks. */
+.living-landscape {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.lake-surface {
+  position: absolute;
+  inset: 72% 0 0;
+}
+.lake-surface svg {
+  width: 100%;
+  height: 100%;
+}
+.lake-ripple {
+  opacity: 0.32;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lake-wave var(--ripple-duration) var(--ripple-delay) ease-in-out
+    infinite;
+}
+.water-glints {
+  opacity: 0.55;
+  animation: water-sheen 7s ease-in-out infinite alternate;
+}
+.drifting-boat {
+  position: absolute;
+  width: 116px;
+  left: 64%;
+  bottom: 11%;
+  animation: boat-journey 32s ease-in-out infinite alternate;
+}
+.boat-body {
+  width: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 4px 2px #48677922);
+  transform-origin: 50% 80%;
+  animation: boat-bob 4s ease-in-out infinite;
+}
+.boat-oar {
+  transform-origin: 130px 49px;
+  animation: rowing-oar 4s ease-in-out infinite;
+}
+.boat-wake {
+  position: absolute;
+  inset: 78% -35% -10%;
+}
+.boat-wake span {
+  position: absolute;
+  width: 95%;
+  height: 9px;
+  border: 1px solid #7da8b755;
+  border-radius: 50%;
+  animation: boat-wake 4s ease-out infinite;
+}
+.boat-wake span:nth-child(2) {
+  animation-delay: -1.3s;
+}
+.boat-wake span:nth-child(3) {
+  animation-delay: -2.6s;
+}
+.boat-reflection {
+  position: absolute;
+  top: 90%;
+  left: 20%;
+  width: 68%;
+  height: 15px;
+  background: linear-gradient(#4e76874a, transparent);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: reflection-shimmer 4s ease-in-out infinite;
+}
+.cloud-stream {
+  position: absolute;
+  width: 85%;
+  height: 25%;
+  left: 30%;
+  filter: blur(13px);
+  background:
+    radial-gradient(ellipse at 25% 50%, #f5faf8a8, transparent 52%),
+    radial-gradient(ellipse at 70% 60%, #eef8fa9c, transparent 48%);
+  animation: cloud-crossing 22s ease-in-out infinite alternate;
+}
+.cloud-stream-high {
+  top: 16%;
+  opacity: 0.7;
+  animation-delay: -8s;
+}
+.cloud-stream-low {
+  top: 48%;
+  left: 15%;
+  height: 18%;
+  animation-duration: 17s;
+  animation-direction: alternate-reverse;
+}
+.cloud-stream-lake {
+  top: 67%;
+  left: 40%;
+  height: 11%;
+  opacity: 0.7;
+  animation-duration: 28s;
+  animation-delay: -16s;
+}
+@keyframes lake-wave {
+  0%,
+  100% {
+    transform: translateX(-9px) scaleX(0.86);
+    opacity: 0.13;
+  }
+  50% {
+    transform: translateX(14px) scaleX(1.15);
+    opacity: 0.48;
+  }
+}
+@keyframes water-sheen {
+  from {
+    transform: translateX(-12px);
+    opacity: 0.25;
+  }
+  to {
+    transform: translateX(18px);
+    opacity: 0.8;
+  }
+}
+@keyframes boat-journey {
+  from {
+    transform: translateX(-35px);
+  }
+  to {
+    transform: translateX(125px);
+  }
+}
+@keyframes boat-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(3px) rotate(1.5deg);
+  }
+}
+@keyframes rowing-oar {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+@keyframes boat-wake {
+  from {
+    transform: translateX(4px) scale(0.65);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(-20px) scale(1.7);
+    opacity: 0;
+  }
+}
+@keyframes reflection-shimmer {
+  0%,
+  100% {
+    transform: scaleX(0.9);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 0.8;
+  }
+}
+@keyframes cloud-crossing {
+  from {
+    transform: translate3d(-70px, 0, 0) scaleX(0.94);
+  }
+  to {
+    transform: translate3d(90px, -12px, 0) scaleX(1.08);
+  }
+}
+[data-theme='dark'] .living-landscape {
+  opacity: 0.42;
+}
+@media (max-width: 760px) {
+  .drifting-boat {
+    width: 78px;
+    left: 44%;
+    bottom: 8%;
+  }
+  .cloud-stream {
+    width: 110%;
+    left: 15%;
+  }
+  @keyframes boat-journey {
+    from {
+      transform: translateX(-18px);
+    }
+    to {
+      transform: translateX(25px);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .living-landscape * {
+    animation: none !important;
+  }
+  .boat-wake {
+    display: none;
+  }
+}

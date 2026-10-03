@@ -4,6 +4,7 @@ import PostCard from '../components/PostCard.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Icon from '../components/Icon.astro';
 import Foreground from '../components/Foreground.astro';
+import LivingLandscape from '../components/LivingLandscape.astro';
 import { getPosts, url } from '../lib/posts';
 const posts = await getPosts();
 const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
@@ -29,6 +30,7 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
         height="724"
         fetchpriority="high"
       />
+      <LivingLandscape />
     </div>
     <Foreground />
     <div class="hero-inner">
