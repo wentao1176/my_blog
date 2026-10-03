@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PostCard from '../components/PostCard.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Icon from '../components/Icon.astro';
+import Foreground from '../components/Foreground.astro';
 import { getPosts, url } from '../lib/posts';
 const posts = await getPosts();
 const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
@@ -10,23 +11,26 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
 
 <Layout>
   <section class="hero">
-    <div class="hero-mist" aria-hidden="true"></div>
-    <div class="hero-aura" aria-hidden="true"></div>
-    <div class="floating-lights" aria-hidden="true">
-      {Array.from({ length: 24 }, (_, i) => (
-        <span
-          style={`--i:${i};--left:${8 + ((i * 31) % 85)}%;--top:${13 + ((i * 17) % 75)}%`}
-        ></span>
-      ))}
+    <div class="hero-backdrop">
+      <div class="hero-mist" aria-hidden="true"></div>
+      <div class="hero-aura" aria-hidden="true"></div>
+      <div class="floating-lights" aria-hidden="true">
+        {Array.from({ length: 24 }, (_, i) => (
+          <span
+            style={`--i:${i};--left:${8 + ((i * 31) % 85)}%;--top:${13 + ((i * 17) % 75)}%`}
+          ></span>
+        ))}
+      </div>
+      <img
+        class="hero-art"
+        src={url('/images/mist-landscape.webp')}
+        alt="浅蓝色水墨山水，远山隐于雾中，湖畔有亭与竹影"
+        width="2172"
+        height="724"
+        fetchpriority="high"
+      />
     </div>
-    <img
-      class="hero-art"
-      src={url('/images/mist-landscape.webp')}
-      alt="浅蓝色水墨山水，远山隐于雾中，湖畔有亭与竹影"
-      width="2172"
-      height="724"
-      fetchpriority="high"
-    />
+    <Foreground />
     <div class="hero-inner">
       <div class="hero-copy">
         <div class="eyebrow">

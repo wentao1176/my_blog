@@ -2257,3 +2257,138 @@ a:hover {
     transform: none;
   }
 }
+/* Foreground branches project beyond the landscape frame. */
+.hero {
+  overflow: visible;
+  isolation: isolate;
+  --scene-scroll: 0;
+}
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.landscape-depth {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  perspective: 900px;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.depth-branch {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 750ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.depth-branch svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(-12px 20px 12px #173c5033);
+}
+.depth-branch-near {
+  width: min(36vw, 510px);
+  right: 2%;
+  bottom: -52px;
+  transform-origin: 100% 100%;
+  transform: translate3d(
+      calc(var(--pointer-x) * -34px),
+      calc(var(--pointer-y) * -21px + var(--scene-scroll) * -52px),
+      105px
+    )
+    rotateX(calc(var(--pointer-y) * -9deg))
+    rotateY(calc(var(--pointer-x) * 12deg));
+}
+.depth-branch-far {
+  width: min(31vw, 440px);
+  right: 0;
+  top: -8px;
+  opacity: 0.7;
+  transform-origin: 100% 0;
+  transform: translate3d(
+      calc(var(--pointer-x) * -15px),
+      calc(var(--pointer-y) * -10px + var(--scene-scroll) * -20px),
+      35px
+    )
+    rotateY(calc(var(--pointer-x) * 5deg));
+}
+.bamboo-sculpture {
+  transform-origin: 95% 100%;
+  animation:
+    branch-emerge 1600ms cubic-bezier(0.16, 1, 0.3, 1) both,
+    bamboo-breathe 7s 1600ms ease-in-out infinite alternate;
+}
+.leaf-spray {
+  transform-origin: 0 0;
+  animation: leaf-breeze 4.5s var(--leaf-delay) ease-in-out infinite alternate;
+}
+.depth-branch-far svg {
+  transform-origin: 100% 0;
+  animation: distant-breeze 8s ease-in-out infinite alternate;
+}
+.welcome-line {
+  position: relative;
+  z-index: 2;
+}
+@keyframes branch-emerge {
+  from {
+    opacity: 0;
+    transform: perspective(650px) rotateX(38deg) rotateY(-24deg) scale(0.74);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(650px) rotateX(-4deg) rotateY(3deg) scale(1);
+  }
+}
+@keyframes bamboo-breathe {
+  from {
+    transform: perspective(650px) rotateX(-4deg) rotateY(3deg) rotateZ(-1.5deg);
+  }
+  to {
+    transform: perspective(650px) rotateX(5deg) rotateY(-5deg) rotateZ(1.5deg);
+  }
+}
+@keyframes leaf-breeze {
+  from {
+    transform: rotate(-4deg) rotateY(-12deg);
+  }
+  to {
+    transform: rotate(6deg) rotateY(15deg);
+  }
+}
+@keyframes distant-breeze {
+  from {
+    transform: rotate(-1deg);
+  }
+  to {
+    transform: rotate(2deg) translateY(7px);
+  }
+}
+[data-theme='dark'] .depth-branch {
+  opacity: 0.65;
+}
+@media (max-width: 760px) {
+  .depth-branch-near {
+    width: 43vw;
+    right: 4%;
+    bottom: -26px;
+  }
+  .depth-branch-far {
+    width: 40vw;
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .depth-branch {
+    transform: none;
+    transition: none;
+  }
+  .bamboo-sculpture,
+  .leaf-spray,
+  .depth-branch-far svg {
+    animation: none;
+  }
+}

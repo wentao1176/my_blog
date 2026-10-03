@@ -51,5 +51,23 @@ function setupPointerMotion(surface: HTMLElement, heroMode = false) {
   reducedMotion.addEventListener('change', reset);
   finePointer.addEventListener('change', reset);
 }
-if (hero) setupPointerMotion(hero, true);
+if (hero) {
+  setupPointerMotion(hero, true);
+  let scrollFrame = 0;
+  const updateDepth = () => {
+    scrollFrame = 0;
+    const rect = hero.getBoundingClientRect();
+    const progress = reducedMotion.matches
+      ? 0
+      : Math.max(0, Math.min(1, -rect.top / rect.height));
+    hero.style.setProperty('--scene-scroll', progress.toFixed(3));
+  };
+  const scheduleDepth = () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateDepth);
+  };
+  addEventListener('scroll', scheduleDepth, { passive: true });
+  addEventListener('resize', scheduleDepth, { passive: true });
+  reducedMotion.addEventListener('change', scheduleDepth);
+  updateDepth();
+}
 tiltSurfaces.forEach((surface) => setupPointerMotion(surface));
